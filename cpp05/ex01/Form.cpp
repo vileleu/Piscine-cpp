@@ -1,0 +1,75 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/15 20:43:18 by vico              #+#    #+#             */
+/*   Updated: 2021/07/15 21:22:28 by vico             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Form.hpp"
+
+using namespace std;
+
+Form::Form(string c_name, int c_g_sign, int c_g_exec) : name(c_name), g_sign(c_g_sign), g_exec(c_g_exec), sign(false)
+{
+	if (c_g_sign > 150 || c_g_exec > 150)
+		throw Form::GradeTooLowException();
+	if (c_g_sign < 1 || c_g_exec < 1)
+		throw Form::GradeTooHighException();
+}
+
+Form::Form(Form const &copy) : name(copy.name), g_sign(copy.g_sign), g_exec(copy.g_exec), sign(copy.sign)
+{
+}
+
+Form::~Form()
+{
+}
+
+string	Form::GetName() const
+{
+	return this->name;
+}
+
+int 		Form::GetG_sign() const
+{
+	return this->g_sign;
+}
+
+int			Form::GetG_exec() const
+{
+	return this->g_exec;
+}
+
+bool		Form::GetSign() const
+{
+	return this->sign;
+}
+
+void		Form::beSigned(Bureaucrat const &obj)
+{
+	if (obj.GetGrade() > this->g_sign)
+		throw Form::GradeTooLowException();
+	else
+		this->sign = true;
+}
+
+std::ostream		&operator<<(std::ostream &out, Form const &obj)
+{
+	out << "Form " << obj.GetName() << " : g_sign = " << obj.GetG_sign() << ", g_exec = " << obj.GetG_exec() << ", sign = " << obj.GetSign() << "\n";
+	return out;
+}
+
+const char *Form::GradeTooHighException::what() const throw()
+{
+	return "Grade is too High\n";
+}
+
+const char *Form::GradeTooLowException::what() const throw()
+{
+	return "Grade is too Low\n";
+}

@@ -1,0 +1,13 @@
+Le mot définit figure 1 fois
+Le mot un figure 1 fois
+Le mot chaîne figure 2 fois
+Le mot de figure 2 fois
+Le mot deux figure 1 fois
+Le mot entier figure 1 fois
+Le mot classe figure 2 fois
+Le mot caractères figure 2 fois
+Le mot comportant figure 1 fois
+Le mot Combien figure 1 fois
+Le mot une figure 4 fois
+Le mot On figure 1 fois
+Le mot champs figure 1 fois
