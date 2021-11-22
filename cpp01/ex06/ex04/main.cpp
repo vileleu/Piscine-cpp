@@ -6,13 +6,12 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 21:08:23 by vico              #+#    #+#             */
-/*   Updated: 2021/11/20 20:07:06 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/19 22:07:38 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-#include <dirent.h>
 
 int		err_msg(std::string msg)
 {
@@ -30,11 +29,7 @@ int		main(int ac, char **av)
 	std::string		s1(av[2]);
 	std::string		s2(av[3]);
 	std::ifstream	read(file.c_str());
-	DIR				*dir;
 
-	dir = opendir(file.c_str());
-	if (dir)
-		return err_msg("This is a directory\n");
 	if (!read)
 		return err_msg("Can't open file\n");
 	file += ".replace";

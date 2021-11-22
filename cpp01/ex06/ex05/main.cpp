@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/26 21:36:15 by vico              #+#    #+#             */
-/*   Updated: 2021/11/19 03:43:54 by vico             ###   ########.fr       */
+/*   Created: 2021/06/27 02:40:05 by vico              #+#    #+#             */
+/*   Updated: 2021/11/19 22:19:34 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Karen.hpp"
 
-void	randomChump(std::string name)
+int		main()
 {
-	Zombie	zombie(name);
+	Karen	karen;
 
-	zombie.announce();
-	return ;
+	karen.complain(DEBUG);
+	karen.complain(INFO);
+	karen.complain(WARNING);
+	karen.complain(ERROR);
+	return 0;
 }

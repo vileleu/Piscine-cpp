@@ -6,13 +6,11 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 20:28:56 by vico              #+#    #+#             */
-/*   Updated: 2021/06/26 03:52:14 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/20 21:06:57 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-using namespace std;
 
 Fixed::Fixed()
 {
@@ -21,7 +19,7 @@ Fixed::Fixed()
 
 Fixed::Fixed(const int n)
 {
-	fixed = n << bits;
+	fixed = n * (1 << bits);
 }
 
 Fixed::Fixed(const float n)
@@ -92,7 +90,7 @@ Fixed Fixed::operator--(int)
 	return (tmp);
 }
 
-ostream	&operator<<(ostream &out, Fixed const &fix)
+std::ostream	&operator<<(std::ostream &out, Fixed const &fix)
 {
     out << fix.toFloat();
     return (out);

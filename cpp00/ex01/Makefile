@@ -11,11 +11,11 @@ SRCS		= $(wildcard *.cpp)
 
 OBJS 		= ${SRCS:.cpp=.o}
 
-NAME		= anuaire
+NAME		= annuaire
 
 HEADERS		= -I ./
 
-FLAGS		= -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 %.o: %.cpp
 			@clang++ $(FLAG) -c -o $@ $<
@@ -23,8 +23,8 @@ FLAGS		= -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
 ${NAME}:	${OBJS}
 			@printf "\n$(BLUE)"
 			@printf "$(BLUE)Compiling files..."
-			@clang++ ${FLAGS} ${OBJS} -o ${NAME}
-			@printf "$(GREEN)[anuaire done][✔]$(RESET)\n"
+			@clang++ ${CPPFLAGS} ${OBJS} -o ${NAME}
+			@printf "$(GREEN)[${NAME} done][✔]$(RESET)\n"
 			@printf "\n"
 
 all:		${NAME}

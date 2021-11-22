@@ -6,7 +6,7 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 02:41:52 by vico              #+#    #+#             */
-/*   Updated: 2021/11/20 20:04:06 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/19 22:18:26 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ void	Karen::error(void)
 void	Karen::complain(std::string level)
 {
 	KarenMemFn	array[4] = {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
-	int			nb(atoi(level.c_str()));
-
-	if (nb < 1 || nb > 4)
+	int			nb(stoi(level));
+	
+	if (nb < 0 || nb > 3)
 	{
 		std::cerr << "Error : this level doesn't exist!\n";
 		return ;
 	}
-	(this->*array[nb - 1])();
+	(this->*array[nb])();
 }

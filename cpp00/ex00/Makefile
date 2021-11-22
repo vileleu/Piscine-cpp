@@ -15,16 +15,16 @@ NAME		= megaphone
 
 HEADERS		= -I ./
 
-FLAGS		= -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 %.o: %.cpp
-			@clang++ $(FLAG) -c -o $@ $<
+			@clang++ $(CPPFLAGS) -c -o $@ $<
 
 ${NAME}:	${OBJS}
 			@printf "\n$(BLUE)"
 			@printf "$(BLUE)Compiling files..."
 			@clang++ ${FLAGS} ${OBJS} -o ${NAME}
-			@printf "$(GREEN)[megaphone done][✔]$(RESET)\n"
+			@printf "$(GREEN)[${NAME} done][✔]$(RESET)\n"
 			@printf "\n"
 
 all:		${NAME}

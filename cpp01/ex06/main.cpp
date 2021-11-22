@@ -6,32 +6,26 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 02:40:05 by vico              #+#    #+#             */
-/*   Updated: 2021/06/27 20:29:25 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/19 22:41:53 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Karen.hpp"
 
-using namespace std;
-
-int		error(string text)
+int		error(std::string text)
 {
-	cout << text;
+	std::cout << text;
 	return 0;
 }
 
-int		which_one(string s)
+int		which_one(std::string s)
 {
-	if (s == "DEBUG")
-		return 0;
-	else if (s == "INFO")
-		return 1;
-	else if (s == "WARNING")
-		return 2;
-	else if (s == "ERROR")
-		return 3;
-	else
-		return -1;
+	std::string	tab[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	int			n(0);
+	
+	while (tab[n] != s && n < 4)
+		n++;
+	return n;
 }
 
 void	print(int lvl, Karen karen)
@@ -39,34 +33,34 @@ void	print(int lvl, Karen karen)
 	switch(lvl)
 	{
 		case 0:
-			cout << "[ DEBUG ]\n";
+			std::cout << "[ DEBUG ]\n";
 			karen.complain(DEBUG);
-			cout << "\n";
+			std::cout << "\n";
     		break;
 		case 1:
-			cout << "[ INFO ]\n";
+			std::cout << "[ INFO ]\n";
 			karen.complain(INFO);
-			cout << "\n";
+			std::cout << "\n";
     		break;
 		case 2:
-			cout << "[ WARNING ]\n";
+			std::cout << "[ WARNING ]\n";
 			karen.complain(WARNING);
-			cout << "\n";
+			std::cout << "\n";
 			break;
 		case 3:
-			cout << "[ ERROR ]\n";
+			std::cout << "[ ERROR ]\n";
 			karen.complain(ERROR);
-			cout << "\n";
+			std::cout << "\n";
 			break;
 		default:
-			cout << "[ Probably complaining about insignificant problems ]\n";
+			std::cout << "[ Probably complaining about insignificant problems ]\n";
 	}
 }
 
 int		main(int ac, char **av)
 {
 	Karen	karen;
-	string	answer;
+	std::string	answer;
 
 	if (ac <= 1)
 		return error("need arguments\n");
@@ -94,7 +88,7 @@ int		main(int ac, char **av)
 			print(3, karen);
 			break;
 		default:
-			cout << "[ Probably complaining about insignificant problems ]\n";
+			std::cout << "[ Probably complaining about insignificant problems ]\n";
 			break;
 	}
 	return 0;

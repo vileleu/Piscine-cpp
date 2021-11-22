@@ -7,15 +7,15 @@ ORANGE = 	\033[0;33m
 MAGENTA = 	\033[0;35m
 RESET = 	\033[0m
 
-SRCS		= $(wildcard main.cpp)
+SRCS		= $(wildcard *.cpp)
 
 OBJS 		= ${SRCS:.cpp=.o}
 
-NAME		= replace
+NAME		= Zombie
 
 HEADERS		= -I ./
 
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+FLAGS		= -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
 
 %.o: %.cpp
 			@clang++ $(FLAG) -c -o $@ $<
@@ -24,7 +24,7 @@ ${NAME}:	${OBJS}
 			@printf "\n$(BLUE)"
 			@printf "$(BLUE)Compiling files..."
 			@clang++ ${FLAGS} ${OBJS} -o ${NAME}
-			@printf "$(GREEN)[${NAME} done][✔]$(RESET)\n"
+			@printf "$(GREEN)[Zombie done][✔]$(RESET)\n"
 			@printf "\n"
 
 all:		${NAME}

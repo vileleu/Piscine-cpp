@@ -5,21 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/27 02:40:05 by vico              #+#    #+#             */
-/*   Updated: 2021/11/20 20:03:54 by vico             ###   ########.fr       */
+/*   Created: 2021/11/15 18:38:40 by vico              #+#    #+#             */
+/*   Updated: 2021/11/16 19:12:19 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "Annuaire.hpp"
 
 int		main()
 {
-	Karen	karen;
+	Annuaire	annuaire;
+	std::string	answer("vide");
+	int		exit(1);
 
-	karen.complain(DEBUG);
-	karen.complain(INFO);
-	karen.complain(WARNING);
-	karen.complain(ERROR);
-	karen.complain("hello");
+	while (exit)
+	{ 
+    	std::cout << "ADD, SEARCH or EXIT?" << std::endl;
+    	if (!getline(std::cin, answer))
+		{
+			std::cerr << "Error: EOF reached\n";
+			break ;
+		}
+		if (answer == "ADD")
+		{
+			if (!annuaire.add_Contact())
+				exit = 0;
+		}
+		else if (answer == "SEARCH")
+		{
+			if (!annuaire.search_Contact())
+				exit = 0;
+		}
+		else if (answer == "EXIT")
+			exit = 0;
+		else
+			std::cout << "Command unknown\n";
+	}
 	return 0;
 }

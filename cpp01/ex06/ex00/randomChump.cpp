@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   anuaire.hpp                                        :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/08 17:50:58 by vico              #+#    #+#             */
-/*   Updated: 2021/06/11 20:09:38 by vico             ###   ########.fr       */
+/*   Created: 2021/06/26 21:36:15 by vico              #+#    #+#             */
+/*   Updated: 2021/11/19 03:43:54 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANUAIRE_HPP
-#define ANUAIRE_HPP
+#include "Zombie.hpp"
 
-#include <string>
-#include <iostream>
-#include <cstdlib>
-#include <unistd.h>
-#include "Contact.hpp"
+void	randomChump(std::string name)
+{
+	Zombie	zombie(name);
 
-#endif
+	zombie.announce();
+	return ;
+}

@@ -6,17 +6,17 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 02:40:34 by vico              #+#    #+#             */
-/*   Updated: 2021/06/27 04:16:41 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/20 19:58:48 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KAREN_HPP
 #define KAREN_HPP
 
-#define DEBUG "0"
-#define INFO "1"
-#define WARNING "2"
-#define ERROR "3"
+#define DEBUG "1"
+#define INFO "2"
+#define WARNING "3"
+#define ERROR "4"
 
 #include <iostream>
 

@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Annuaire.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/26 21:36:15 by vico              #+#    #+#             */
-/*   Updated: 2021/11/19 03:43:54 by vico             ###   ########.fr       */
+/*   Created: 2021/06/08 17:50:58 by vico              #+#    #+#             */
+/*   Updated: 2021/11/15 18:50:05 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ANNUAIRE_HPP
+#define ANNUAIRE_HPP
 
-void	randomChump(std::string name)
+#include "Contact.hpp"
+
+class Annuaire
 {
-	Zombie	zombie(name);
+    public:
 
-	zombie.announce();
-	return ;
-}
+	Annuaire();
+	~Annuaire();
+	int		add_Contact();
+	int		search_Contact();
+
+    private:
+
+	Contact 	annuaire[8];
+};
+
+#endif
