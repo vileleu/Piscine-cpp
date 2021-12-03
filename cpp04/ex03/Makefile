@@ -11,20 +11,20 @@ SRCS		= $(wildcard *.cpp)
 
 OBJS 		= ${SRCS:.cpp=.o}
 
-NAME		= interfaces
+NAME		= abstract_class
 
 HEADERS		= -I ./
 
-FLAGS		= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow -g3 -fsanitize=address
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 %.o: %.cpp
-			@clang++ $(FLAG) -c -o $@ $<
+			@clang++ $(CXXFLAGS) -c -o $@ $<
 
 ${NAME}:	${OBJS}
 			@printf "\n$(BLUE)"
 			@printf "$(BLUE)Compiling files..."
-			@clang++ ${FLAGS} ${OBJS} -o ${NAME}
-			@printf "$(GREEN)[interfaces done][✔]$(RESET)\n"
+			@clang++ ${CXXFLAGS} ${OBJS} -o ${NAME}
+			@printf "$(GREEN)[$(NAME) done][✔]$(RESET)\n"
 			@printf "\n"
 
 all:		${NAME}

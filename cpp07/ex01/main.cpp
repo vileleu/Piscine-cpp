@@ -12,15 +12,13 @@
 
 #include "iter.hpp"
 
-using namespace std;
-
 int		main(void)
 {
 	float	tab[] = {10.7, 76.9, 65.7, 26.03, 24.76};
 	
 	iter(tab, 5, &print);
 
-	string	tab2[] = {"Bonjour", "mimolette", "coquille", "serpent"};
+	std::string	tab2[] = {"Bonjour", "mimolette", "coquille", "serpent"};
 
 	iter(tab2, 4, &print);
 	return 0;

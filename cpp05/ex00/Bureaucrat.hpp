@@ -6,7 +6,7 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 03:15:57 by vico              #+#    #+#             */
-/*   Updated: 2021/07/15 20:36:19 by vico             ###   ########.fr       */
+/*   Updated: 2021/12/01 13:53:24 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Bureaucrat
 	private:
 
 	std::string const	name;
-	int			grade;
+	int					grade;
 
 	public:
 
@@ -29,10 +29,12 @@ class Bureaucrat
 	Bureaucrat(Bureaucrat const &copy);
 	~Bureaucrat();
 
-	std::string	GetName() const;
+	std::string const	GetName() const;
 	int			GetGrade() const;
 	void		incremente();
 	void		decremente();
+
+	Bureaucrat  &operator=(const Bureaucrat &cpy);
 
 	class GradeTooHighException : public std::exception
 	{

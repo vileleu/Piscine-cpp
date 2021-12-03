@@ -6,7 +6,7 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 18:41:02 by vico              #+#    #+#             */
-/*   Updated: 2021/07/09 19:55:42 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/26 19:07:16 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Animal
 	Animal();
 	Animal(std::string	type);
 	Animal(Animal const &copy);
-	~Animal();
+	virtual	~Animal();
 
 	virtual void makeSound() const;
 	std::string getType() const;

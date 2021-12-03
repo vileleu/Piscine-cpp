@@ -6,7 +6,7 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 04:33:51 by vico              #+#    #+#             */
-/*   Updated: 2021/07/16 20:57:00 by vico             ###   ########.fr       */
+/*   Updated: 2021/12/01 14:27:12 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ class RobotomyRequestForm : public Form
 	RobotomyRequestForm(RobotomyRequestForm const &copy);
 	~RobotomyRequestForm();
 
-	virtual	void execute (Bureaucrat const &executor) const;
-	bool const	operator==(RobotomyRequestForm const &obj);
+	virtual	void	execute (Bureaucrat const &executor) const;
 };
 
 #endif

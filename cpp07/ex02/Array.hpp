@@ -14,6 +14,7 @@
 #define ARRAY_HPP
 
 #include <iostream>
+#include <cstdlib>
 
 template <typename T>
 class Array
@@ -25,21 +26,17 @@ class Array
 
 	public:
 
-	Array()
+	Array() : t(new T[0]), l(0)
 	{
-		this->t = new T[0];
-		this->l = 0;
 	}
-	Array(unsigned int n)
+	Array(unsigned int n) : t(new T[n]), l(n)
 	{
-		this->t = new T[n];
-		this->l = n;
 	}
-	Array(Array const &copy)
+	Array(Array const &copy) : t(new T[copy.size()]), l(n)
 	{
 		this->t = new T[copy.size()];
 		this->l = copy.size();
-		for (int i(0); i < this->l; i++)
+		for (unsigned int i(0); i < this->l; i++)
 			this->t[i] = copy[i];
 	}
 	~Array()
@@ -55,7 +52,7 @@ class Array
 		delete[] this->t;
 		this->t = new T[obj.size()];
 		this->l = obj.size();
-		for (int i(0); i < this->l; i++)
+		for (unsigned int i(0); i < this->l; i++)
 			this->t[i] = obj[i];
 		return *this;
 	}

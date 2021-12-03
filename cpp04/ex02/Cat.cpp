@@ -6,39 +6,45 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 19:08:35 by vico              #+#    #+#             */
-/*   Updated: 2021/07/12 04:29:55 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/26 20:44:11 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-using namespace std;
-
 Cat::Cat() : Animal("Cat")
 {
 	this->brain = new Brain();
-	cout << "New Cat\n";
+	std::cout << "New Cat\n";
 }
 
-Cat::Cat(Cat const &copy)
+Cat::Cat(Cat const &copy) : Animal("Cat")
 {
-	*this = copy;
+	this->type = copy.getType();
+	this->brain = new Brain(*(copy.getBrain()));
+	std::cout << "New Cat copied\n";
 }
 
 Cat::~Cat()
 {
 	delete this->brain;
-	cout << "A Cat left the game\n";
+	std::cout << "A Cat left the game\n";
 }
 
 void	Cat::makeSound() const
 {
-	cout << "Miaaaaaou\n";
+	std::cout << "Miaaaaaou\n";
+}
+
+Brain	*Cat::getBrain() const
+{
+	return this->brain;
 }
 
 Cat&	Cat::operator=(Cat const &obj)
 {
+	delete this->brain;
 	this->type = obj.type;
-	this->brain = obj.brain;
+	this->brain = new Brain(*(obj.getBrain()));
 	return *this;
 }

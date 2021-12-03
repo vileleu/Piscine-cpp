@@ -6,20 +6,18 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 03:16:00 by vico              #+#    #+#             */
-/*   Updated: 2021/07/16 21:04:38 by vico             ###   ########.fr       */
+/*   Updated: 2021/12/01 14:21:45 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-using namespace std;
-
 Bureaucrat::Bureaucrat() : name("Unnamed"), grade(150)
 {
 }
 
-Bureaucrat::Bureaucrat(string const &c_name, int c_grade) : name(c_name)
+Bureaucrat::Bureaucrat(std::string const &c_name, int c_grade) : name(c_name)
 {
 	if (c_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -63,21 +61,39 @@ void		Bureaucrat::decremente()
 		(this->grade)++;
 }
 
-void		Bureaucrat::signForm(Form const &obj)
+void		Bureaucrat::signForm(Form &obj)
 {
-	if (this->grade <= obj.GetG_sign())
-		cout << "bureaucrat " << this->name << " signs form " << obj.GetName() << "\n";
-	else
-		cout << "bureaucrat " << this->name << " cannot sign because grade is too low\n";
+	try
+	{
+		obj.beSigned(*this);
+		std::cout << "bureaucrat " << this->name << " signs form " << obj.GetName() << "\n";
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "bureaucrat " << this->name << " cannot sign because grade is too low\n";
+	}
 }
 
 void		Bureaucrat::executeForm(Form const &form)
 {
-	if (this->GetGrade() > form.GetG_exec())
-		throw Form::GradeTooLowException();
 	if (!form.GetSign())
-		throw Form::FormIsNotSigned();
+	{
+		std::cerr << "Bureaucrat " << this->GetName() << " can't executs " << form.GetName() << " because Form is not signed\n";
+		return ;
+	}
+	if (this->GetGrade() > form.GetG_exec())
+	{
+		std::cerr << "Bureaucrat " << this->GetName() << " can't executs " << form.GetName() << " because grade is too low\n";
+		return ;
+	}
+	std::cerr << "Bureaucrat " << this->GetName() << " executs " << form.GetName() << "\n";
 	form.execute(*this);
+}
+
+Bureaucrat   &Bureaucrat::operator=(const Bureaucrat &cpy)
+{
+    this->grade = cpy.GetGrade();
+    return *this;
 }
 
 std::ostream		&operator<<(std::ostream &out, Bureaucrat const &obj)

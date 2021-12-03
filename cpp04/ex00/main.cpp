@@ -6,12 +6,13 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 18:52:58 by vico              #+#    #+#             */
-/*   Updated: 2021/07/09 19:49:48 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/29 14:11:09 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
@@ -27,5 +28,12 @@ int main()
 	delete meta;
 	delete i;
 	delete j;
+
+	const WrongAnimal* meta2 = new WrongAnimal();
+	const WrongAnimal* j2 = new WrongCat();
+	meta2->makeSound();
+	j2->makeSound();
+	delete meta2;
+	delete j2;
 	return 0;
 }

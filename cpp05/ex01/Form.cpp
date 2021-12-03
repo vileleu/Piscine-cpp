@@ -6,15 +6,17 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 20:43:18 by vico              #+#    #+#             */
-/*   Updated: 2021/07/15 21:22:28 by vico             ###   ########.fr       */
+/*   Updated: 2021/12/01 14:23:13 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-using namespace std;
+Form::Form() : name("unnamed"), g_sign(150), g_exec(150), sign(false)
+{
+}
 
-Form::Form(string c_name, int c_g_sign, int c_g_exec) : name(c_name), g_sign(c_g_sign), g_exec(c_g_exec), sign(false)
+Form::Form(std::string c_name, int c_g_sign, int c_g_exec) : name(c_name), g_sign(c_g_sign), g_exec(c_g_exec), sign(false)
 {
 	if (c_g_sign > 150 || c_g_exec > 150)
 		throw Form::GradeTooLowException();
@@ -30,7 +32,7 @@ Form::~Form()
 {
 }
 
-string	Form::GetName() const
+std::string	Form::GetName() const
 {
 	return this->name;
 }
@@ -56,6 +58,12 @@ void		Form::beSigned(Bureaucrat const &obj)
 		throw Form::GradeTooLowException();
 	else
 		this->sign = true;
+}
+
+Form    &Form::operator=(const Form &cpy)
+{
+	(void)cpy;
+    return *this;
 }
 
 std::ostream		&operator<<(std::ostream &out, Form const &obj)

@@ -6,7 +6,7 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 19:00:12 by vico              #+#    #+#             */
-/*   Updated: 2021/07/12 04:35:36 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/26 20:08:50 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Dog : public Animal
 	virtual ~Dog();
 
 	virtual void makeSound() const;
+	Brain	*getBrain() const;
 
 	Dog	&operator=(Dog const &obj);
 };

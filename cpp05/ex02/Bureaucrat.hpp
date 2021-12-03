@@ -6,7 +6,7 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 03:15:57 by vico              #+#    #+#             */
-/*   Updated: 2021/07/16 21:02:47 by vico             ###   ########.fr       */
+/*   Updated: 2021/12/01 14:22:01 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
 
 class Form;
 
@@ -37,8 +38,10 @@ class Bureaucrat
 	void		incremente();
 	void		decremente();
 
-	void		signForm(Form const &obj);
+	void		signForm(Form &obj);
 	void		executeForm(Form const &form);
+
+	Bureaucrat  &operator=(const Bureaucrat &cpy);
 
 	class GradeTooHighException : public std::exception
 	{

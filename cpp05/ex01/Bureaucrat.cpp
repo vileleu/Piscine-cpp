@@ -6,20 +6,18 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 03:16:00 by vico              #+#    #+#             */
-/*   Updated: 2021/07/15 21:19:42 by vico             ###   ########.fr       */
+/*   Updated: 2021/12/01 14:08:58 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-using namespace std;
-
 Bureaucrat::Bureaucrat() : name("Unnamed"), grade(150)
 {
 }
 
-Bureaucrat::Bureaucrat(string const &c_name, int c_grade) : name(c_name)
+Bureaucrat::Bureaucrat(std::string const &c_name, int c_grade) : name(c_name)
 {
 	if (c_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -37,7 +35,7 @@ Bureaucrat::~Bureaucrat()
 {
 }
 
-std::string	Bureaucrat::GetName() const
+std::string const	Bureaucrat::GetName() const
 {
 	return this->name;
 }
@@ -63,12 +61,23 @@ void		Bureaucrat::decremente()
 		(this->grade)++;
 }
 
-void		Bureaucrat::signForm(Form const &obj)
+void		Bureaucrat::signForm(Form &obj)
 {
-	if (this->grade <= obj.GetG_sign())
-		cout << "bureaucrat " << this->name << " signs form " << obj.GetName() << "\n";
-	else
-		cout << "bureaucrat " << this->name << " cannot sign because grade is too low\n";
+	try
+	{
+		obj.beSigned(*this);
+		std::cout << "bureaucrat " << this->name << " signs form " << obj.GetName() << "\n";
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "bureaucrat " << this->name << " cannot sign because grade is too low\n";
+	}
+}
+
+Bureaucrat   &Bureaucrat::operator=(const Bureaucrat &cpy)
+{
+    this->grade = cpy.GetGrade();
+    return *this;
 }
 
 std::ostream		&operator<<(std::ostream &out, Bureaucrat const &obj)

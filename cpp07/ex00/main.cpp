@@ -12,26 +12,20 @@
 
 #include "whatever.hpp"
 
-using namespace std;
-
-int		main(void)
+int	main(void)
 {
-	double a = 2;
-	double b = 3;
+	int a = 2;
+	int b = 3;
 
-	cout << "a = " << a << ", b = " << b << endl;
 	::swap( a, b );
-	cout << "swap :\na = " << a << ", b = " << b << endl;
-	cout << "min( a, b ) = " << ::min( a, b ) << endl;
-	cout << "max( a, b ) = " << ::max( a, b ) << endl;
-
-	string c = "chaine1";
-	string d = "chaine2";
-
-	cout << "c = " << c << ", d = " << d << endl;
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	std::string c = "chaine1";
+	std::string d = "chaine2";
 	::swap(c, d);
-	cout << "swap :\nc = " << c << ", d = " << d << endl;
-	cout << "min( c, d ) = " << ::min( c, d ) << endl;
-	cout << "max( c, d ) = " << ::max( c, d ) << endl;
+	std::cout << "c = " << c << ", d = " << d << std::endl;
+	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 	return 0;
 }

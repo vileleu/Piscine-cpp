@@ -6,14 +6,14 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 05:15:48 by vico              #+#    #+#             */
-/*   Updated: 2021/07/14 02:07:47 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/27 05:19:45 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICE_HPP
 #define ICE_HPP
 
-#include "interfaces.hpp"
+#include "Abstract_class.hpp"
 
 class Ice : public AMateria
 {

@@ -6,15 +6,13 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 03:22:18 by vico              #+#    #+#             */
-/*   Updated: 2021/07/14 03:59:41 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/27 05:20:26 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "interfaces.hpp"
+#include "Abstract_class.hpp"
 
-using namespace std;
-
-AMateria::AMateria(string const &type)
+AMateria::AMateria(std::string const &type)
 {
 	this->type = type;
 }
@@ -35,11 +33,11 @@ std::string const	&AMateria::getType() const
 
 void	AMateria::use(ICharacter &target)
 {
-	
+	(void)target;
 }
 
 AMateria&	AMateria::operator=(AMateria const &obj)
 {
-	this->type = obj.type;
+	(void)obj;
 	return *this;
 }

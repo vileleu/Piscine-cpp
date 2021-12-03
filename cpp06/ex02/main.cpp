@@ -6,15 +6,13 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 19:07:09 by vico              #+#    #+#             */
-/*   Updated: 2021/07/25 19:27:14 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/29 16:26:54 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
-
-using namespace std;
 
 Base	*generate(void)
 {
@@ -31,11 +29,11 @@ Base	*generate(void)
 void	identify_from_pointer(Base *p)
 {
 	if (dynamic_cast<A*>(p))
-		cout << "A\n";
+		std::cout << "A\n";
 	else if (dynamic_cast<B*>(p))
-		cout << "B\n";
+		std::cout << "B\n";
 	else if (dynamic_cast<C*>(p))
-		cout << "C\n";
+		std::cout << "C\n";
 	return ;
 }
 

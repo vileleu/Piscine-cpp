@@ -6,13 +6,11 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 05:23:02 by vico              #+#    #+#             */
-/*   Updated: 2021/07/14 02:28:33 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/27 05:02:09 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
-
-using namespace std;
 
 Cure::Cure() : AMateria("cure")
 {
@@ -34,10 +32,11 @@ AMateria* Cure::clone() const
 
 void	Cure::use(ICharacter &target)
 {
-	cout << "* heals " << target.getName() << "’s wounds *\n";
+	std::cout << "* heals " << target.getName() << "’s wounds *\n";
 }
 
 AMateria	&Cure::operator=(AMateria const &obj)
 {
+	(void)obj;
 	return *this;
 }

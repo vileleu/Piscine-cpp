@@ -6,7 +6,7 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 03:33:52 by vico              #+#    #+#             */
-/*   Updated: 2021/07/19 00:31:08 by vico             ###   ########.fr       */
+/*   Updated: 2021/12/01 14:26:03 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ class ShrubberyCreationForm : public Form
 
 	ShrubberyCreationForm(std::string name);
 	ShrubberyCreationForm(ShrubberyCreationForm const &copy);
-	virtual	~ShrubberyCreationForm();
+	~ShrubberyCreationForm();
 
 	virtual	void	execute (Bureaucrat const &executor) const;
-	bool const		operator==(ShrubberyCreationForm const &obj);
 };
 
 #endif

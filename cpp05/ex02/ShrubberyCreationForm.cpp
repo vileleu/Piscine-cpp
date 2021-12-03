@@ -6,15 +6,13 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 03:33:54 by vico              #+#    #+#             */
-/*   Updated: 2021/07/16 21:12:08 by vico             ###   ########.fr       */
+/*   Updated: 2021/12/01 14:27:06 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-using namespace std;
-
-ShrubberyCreationForm::ShrubberyCreationForm(string target) : Form("ShrubberyCreationForm", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("ShrubberyCreationForm", 145, 137)
 {
 	this->SetTarget(target);
 }
@@ -35,14 +33,10 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	if (executor.GetGrade() > this->GetG_exec())
 		throw Form::GradeTooLowException();
 
-	string		file_name(this->GetTarget() + "_shrubbery");
-	ofstream	write(file_name);
-	write << "    ccee88oo\n  C8O8O8Q8PoOb o8oo\n dOB69QO8PdUOpugoO9bD\nCgggbU8OU qOp qOdoUOdcb\n    6OuU  /p u gcoUodpP\n      \\\\//  /douUP\n        \\\\////\n         |||/\\\n         |||\\/\n         |||||\n   .....//||||\\....\n";
-}
+	std::string		file_name(this->GetTarget() + "_shrubbery");
+	std::ofstream	write;
 
-bool const	ShrubberyCreationForm::operator==(ShrubberyCreationForm const &obj)
-{
-	if (this->GetName() == obj.GetName() && this->GetSign() == obj.GetSign())
-		return true;
-	return false;
+	write.open(file_name.c_str());
+	write << "    ccee88oo\n  C8O8O8Q8PoOb o8oo\n dOB69QO8PdUOpugoO9bD\nCgggbU8OU qOp qOdoUOdcb\n    6OuU  /p u gcoUodpP\n      \\\\//  /douUP\n        \\\\////\n         |||/\\\n         |||\\/\n         |||||\n   .....//||||\\....\n";
+	write.close();
 }

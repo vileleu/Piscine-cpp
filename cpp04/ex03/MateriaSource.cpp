@@ -6,61 +6,83 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 19:54:02 by vico              #+#    #+#             */
-/*   Updated: 2021/07/14 04:14:21 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/27 05:52:43 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-using namespace std;
-
 MateriaSource::MateriaSource()
 {
 	for (int i(0); i < 4; i++)
-		this->learn[i] = 0;
+		this->_learn[i] = 0;
 }
 
 MateriaSource::MateriaSource(MateriaSource const &copy)
 {
-	*this = copy;
+	this->_size = copy.getSize();
+	for (int i(0); i < 4; i++)
+	{
+		this->_learn[i] = 0;
+		if (i < this->_size)
+			this->_learn[i] = copy.getAMateria(i)->clone();
+	}
 }
 
 MateriaSource::~MateriaSource()
 {
 	for (int i(0); i < 4; i++)
-		delete this->learn[i];
+		delete this->_learn[i];
+}
+
+int					MateriaSource::getSize() const
+{
+	return this->_size;
+}
+
+AMateria			*MateriaSource::getAMateria(int idx) const
+{
+	if (idx > 3 || idx < 0)
+		return NULL;
+	return this->_learn[idx];
 }
 
 void MateriaSource::learnMateria(AMateria* learn)
 {
-	int	i(0);
-
-	while (i < 4)
+	if (!learn)
+		return ;
+	for (int i(0); i < 4; i++)
 	{
-		if (!this->learn[i])
+		if (!this->_learn[i])
 		{
-			this->learn[i] = learn;
-			break ;
+			this->_learn[i] = learn;
+			return ;
 		}
-		i++;
 	}
+	std::cout << "too many Materias learned\n";
+	delete learn;
 }
 
 AMateria* MateriaSource::createMateria(std::string const &type)
 {
-	for (int i(0); i < 4 && this->learn[i]; i++)
+	for (int i(0); i < 4 && this->_learn[i]; i++)
 	{
-		if (this->learn[i]->getType() == type && type == "ice")
-			return new Ice();
-		else if (this->learn[i]->getType() == type && type == "cure")
-			return new Cure();
+		if (this->_learn[i]->getType() == type)
+			return this->_learn[i]->clone();
 	}
 	return 0;
 }
 
 MateriaSource&	MateriaSource::operator=(MateriaSource const &obj)
 {
+	this->_size = obj.getSize();
 	for (int i(0); i < 4; i++)
-		this->learn[i] = obj.learn[i];
+	{
+		if (this->_learn[i])
+			delete this->_learn[i];
+		this->_learn[i] = 0;
+		if (i < this->_size)
+			this->_learn[i] = obj.getAMateria(i)->clone();
+	}
 	return *this;
 }

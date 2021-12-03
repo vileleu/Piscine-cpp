@@ -6,13 +6,11 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 05:15:44 by vico              #+#    #+#             */
-/*   Updated: 2021/07/14 02:28:20 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/27 04:56:45 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
-
-using namespace std;
 
 Ice::Ice() : AMateria("ice")
 {
@@ -34,10 +32,11 @@ AMateria* Ice::clone() const
 
 void	Ice::use(ICharacter &target)
 {
-	cout << "* shoots an ice bolt at " << target.getName() << " *\n";
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *\n";
 }
 
 AMateria	&Ice::operator=(AMateria const &obj)
 {
+	(void)obj;
 	return *this;
 }

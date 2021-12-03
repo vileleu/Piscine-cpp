@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/27 20:42:15 by vico              #+#    #+#             */
-/*   Updated: 2021/11/24 15:47:12 by vico             ###   ########.fr       */
+/*   Created: 2021/11/26 19:18:53 by vico              #+#    #+#             */
+/*   Updated: 2021/11/26 19:28:38 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "WrongCat.hpp"
 
-int		main()
+WrongCat::WrongCat()
 {
-	ClapTrap	clap("Henry");
+	std::cout << "wrong cat created\n";
+}
 
-	clap.attack("Donny");
-	clap.takeDamage(8);
-	clap.beRepaired(5);
-	ClapTrap	clap2("Timothe");
+WrongCat::WrongCat(WrongCat const &copy)
+{
+	std::cout << "wrong cat copied\n";
+	*this = copy;
+}
 
-	clap2.setAttackdamage(100);
-	clap2.attack("Donny");
-	clap2.setHitpoints(100);
-	clap2.takeDamage(8);
-	std::cout << "ClapTrap " << clap2.getname() << " has " << clap2.getHitpoints() << " hitpoint(s)\n";
+WrongCat::~WrongCat()
+{
+	std::cout << "wrong cat destroyed\n";
+}
+
+void WrongCat::makeSound() const
+{
+	std::cout << "wrong Miaou\n";
+}
+
+WrongCat&	WrongCat::operator=(WrongCat const &obj)
+{
+	this->type = obj.getType();
+	return *this;
 }

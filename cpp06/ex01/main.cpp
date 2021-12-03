@@ -6,17 +6,17 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 17:46:33 by vico              #+#    #+#             */
-/*   Updated: 2021/07/24 18:09:28 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/29 14:48:42 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-
-using namespace std;
+#include <stdlib.h>
+#include <stdint.h>
 
 struct	Data
 {
-	string	name;
+	std::string	name;
 	int		age;
 	float	size;
 };
@@ -24,7 +24,7 @@ struct	Data
 uintptr_t	serialize(Data* ptr)
 {
 	srand(time(NULL));
-	string	tab_s[] = {"Danny", "Georges", "Anakin", "Renée", "Claude"};
+	std::string	tab_s[] = {"Danny", "Georges", "Anakin", "Renée", "Claude"};
 	int		tab_i[] = {18, 20, 45, 86, 4};
 	float	tab_f[] = {1.75, 1.40, 2.10, 1.66, 1.20};
 
@@ -44,7 +44,7 @@ int		main(void)
 	Data	*data;
 
 	data = deserialize(serialize(new Data()));
-	cout << "name = " << data->name << ", age = " << data->age << ", size = " << data->size << "\n";
+	std::cout << "name = " << data->name << ", age = " << data->age << ", size = " << data->size << "\n";
 	delete data;
 	return 0;
 }

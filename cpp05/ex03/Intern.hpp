@@ -6,7 +6,7 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/18 06:39:54 by vico              #+#    #+#             */
-/*   Updated: 2021/07/19 00:27:21 by vico             ###   ########.fr       */
+/*   Updated: 2021/12/01 14:24:58 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ class Intern
 	~Intern();
 
 	Form	*makeForm(std::string const &name, std::string const &target);
+
+	Intern  &operator=(const Intern &cpy);
 
 	class FormIsUnknown : public std::exception
 	{

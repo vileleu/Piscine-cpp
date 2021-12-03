@@ -6,7 +6,7 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 19:08:05 by vico              #+#    #+#             */
-/*   Updated: 2021/07/01 03:39:42 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/24 17:16:18 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@ class ScavTrap : virtual public ClapTrap
 
 	public:
 
+	ScavTrap();
 	ScavTrap(std::string n);
-	~ScavTrap();
-	void	guardGate();
+	ScavTrap(ScavTrap const &cpy);
+	virtual	~ScavTrap();
+	ScavTrap&		operator=(ScavTrap const &rhs);
+	virtual	void	attack(std::string const &target);
+	void			guardGate();
 };
 
 #endif

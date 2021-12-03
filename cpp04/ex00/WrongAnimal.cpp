@@ -1,50 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/09 18:40:55 by vico              #+#    #+#             */
-/*   Updated: 2021/11/26 19:26:56 by vico             ###   ########.fr       */
+/*   Created: 2021/11/26 19:18:59 by vico              #+#    #+#             */
+/*   Updated: 2021/11/26 19:28:17 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
-	std::cout << "animal created\n";
-	this->type = "null";
+	std::cout << "wrong animal created\n";
 }
 
-Animal::Animal(std::string type)
+WrongAnimal::WrongAnimal(std::string type)
 {
-	std::cout << "animal created\n";
+	std::cout << "wrong animal created\n";
 	this->type = type;
 }
 
-Animal::Animal(Animal const &copy)
+WrongAnimal::WrongAnimal(WrongAnimal const &copy)
 {
-	std::cout << "animal copied\n";
+	std::cout << "wrong animal copied\n";
 	*this = copy;
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout << "animal destroyed\n";
+	std::cout << "wrong animal destroyed\n";
 }
 
-std::string Animal::getType() const
+void WrongAnimal::makeSound() const
+{
+	//do nothing
+}
+
+std::string WrongAnimal::getType() const
 {
 	return this->type;
 }
 
-void	Animal::makeSound() const
-{
-}
-
-Animal&	Animal::operator=(Animal const &obj)
+WrongAnimal&	WrongAnimal::operator=(WrongAnimal const &obj)
 {
 	this->type = obj.getType();
 	return *this;

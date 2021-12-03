@@ -15,15 +15,15 @@ NAME		= diamondtrap
 
 HEADERS		= -I ./
 
-FLAGS		= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow -g3 -fsanitize=address
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow
 
 %.o: %.cpp
-			@clang++ $(FLAG) -c -o $@ $<
+			@clang++ $(CXXFLAGS) -c -o $@ $<
 
 ${NAME}:	${OBJS}
 			@printf "\n$(BLUE)"
 			@printf "$(BLUE)Compiling files..."
-			@clang++ ${FLAGS} ${OBJS} -o ${NAME}
+			@clang++ ${CXXFLAGS} ${OBJS} -o ${NAME}
 			@printf "$(GREEN)[diamondtrap done][✔]$(RESET)\n"
 			@printf "\n"
 

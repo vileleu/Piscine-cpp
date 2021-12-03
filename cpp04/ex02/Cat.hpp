@@ -6,7 +6,7 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 18:56:52 by vico              #+#    #+#             */
-/*   Updated: 2021/07/12 04:35:03 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/26 20:09:01 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Cat : public Animal
 	virtual ~Cat();
 
 	virtual void makeSound() const;
+	Brain	*getBrain() const;
 
 	Cat	&operator=(Cat const &obj);
 };

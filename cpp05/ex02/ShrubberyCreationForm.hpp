@@ -6,7 +6,7 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 03:33:52 by vico              #+#    #+#             */
-/*   Updated: 2021/07/16 20:56:43 by vico             ###   ########.fr       */
+/*   Updated: 2021/12/01 14:27:01 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class ShrubberyCreationForm : public Form
 	~ShrubberyCreationForm();
 
 	virtual	void	execute (Bureaucrat const &executor) const;
-	bool const		operator==(ShrubberyCreationForm const &obj);
 };
 
 #endif

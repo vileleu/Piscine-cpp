@@ -6,7 +6,7 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 03:50:24 by vico              #+#    #+#             */
-/*   Updated: 2021/07/19 01:15:23 by vico             ###   ########.fr       */
+/*   Updated: 2021/11/30 13:57:09 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,47 +15,62 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 
-using namespace std;
-
 int		main()
 {
-    ShrubberyCreationForm form = ShrubberyCreationForm("Arbre");
-    RobotomyRequestForm form2 = RobotomyRequestForm("Robotomise moi ca");
-    PresidentialPardonForm form3 = PresidentialPardonForm("The pardon");
-    Bureaucrat homme = Bureaucrat("Pompidou", 120);
-    Bureaucrat homme2 = Bureaucrat("Pompon", 80);
-    Bureaucrat homme3 = Bureaucrat("Chef", 1);
+    Form *form = new ShrubberyCreationForm("House");
+    Bureaucrat pompidou("Pompidou", 138);
+    Bureaucrat chef("Chef", 1);
+	std::cout << "\n---Shrubbery---\n\n";
     try
     {
-        form.execute(homme);
+        pompidou.executeForm(*form);
     }
     catch (const std::exception & e)
     {
-        cout << e.what();
+        std::cerr << e.what();
     }
     try
     {
-        form2.execute(homme2);
+        form->execute(pompidou);
     }
     catch (const std::exception & e)
     {
-        cout << e.what();
+        std::cerr << e.what();
     }
     try
     {
-        form3.beSigned(homme3);
-        homme3.executeForm(form3);
+        chef.signForm(*form);
+        pompidou.executeForm(*form);
     }
     catch (const std::exception & e)
     {
-        cout << e.what();
+        std::cerr << e.what();
     }
-    form.beSigned(homme3);
-    form2.beSigned(homme3);
-    form3.beSigned(homme3);
-
-    homme3.executeForm(form);
-    homme3.executeForm(form2);
-    homme3.executeForm(form3);
+	delete form;
+	std::cout << "\n---Robotomy---\n\n";
+    form = new RobotomyRequestForm("Robot_target");
+	try
+	{
+    	chef.signForm(*form);
+    	pompidou.executeForm(*form);	
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	delete form;
+	std::cout << "\n---Presidential---\n\n";
+	form = new PresidentialPardonForm("president_target");
+	try
+	{
+    	pompidou.signForm(*form);
+		chef.signForm(*form);
+    	chef.executeForm(*form);	
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	delete form;
 	return 0;
 }

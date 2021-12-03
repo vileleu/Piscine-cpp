@@ -6,7 +6,7 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 04:34:07 by vico              #+#    #+#             */
-/*   Updated: 2021/07/19 00:31:21 by vico             ###   ########.fr       */
+/*   Updated: 2021/12/01 14:25:38 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ class PresidentialPardonForm : public Form
 
 	PresidentialPardonForm(std::string target);
 	PresidentialPardonForm(PresidentialPardonForm const &copy);
-	virtual	~PresidentialPardonForm();
+	~PresidentialPardonForm();
 
-	virtual	void execute(Bureaucrat const &executor) const;
-	bool const	operator==(PresidentialPardonForm const &obj);
+	virtual	void	execute(Bureaucrat const &executor) const;
 };
 
 #endif

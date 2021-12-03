@@ -6,7 +6,7 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 20:43:21 by vico              #+#    #+#             */
-/*   Updated: 2021/07/15 21:05:25 by vico             ###   ########.fr       */
+/*   Updated: 2021/12/01 14:09:25 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Form
 
 	public:
 
+	Form();
 	Form(std::string name, int g_sign, int g_exec);
 	Form(Form const &copy);
 	~Form();
@@ -35,6 +36,8 @@ class Form
 	int			GetG_exec() const;
 	bool		GetSign() const;
 	void		beSigned(Bureaucrat const &obj);
+
+	Form  &operator=(const Form &cpy);
 
 	class GradeTooHighException : public std::exception
 	{
