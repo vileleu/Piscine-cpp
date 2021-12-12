@@ -12,47 +12,49 @@
 
 #include "easyfind.hpp"
 
-using namespace std;
-
 int		main()
 {
 	try
 	{
-		vector<int>	vec;
+		std::vector<int>	vec;
 
 		vec.push_back(5);
 		vec.push_back(45);
 		vec.push_back(1176);
 		vec.push_back(90);
-		cout << easyfind(vec, 90) << "\n";
+		std::cout << easyfind(vec, 90) << std::endl;
 	}
-	catch(const exception & e)
+	catch(const std::exception & e)
 	{
-		cerr << e.what() << '\n';
+		std::cerr << e.what() << '\n';
 	}
 	try
 	{
-		list<int>	lis;
+		std::list<int>	lis;
 
 		lis.push_back(5);
 		lis.push_back(45);
 		lis.push_back(1176);
 		lis.push_back(91);
-		cout << easyfind(lis, 90) << "\n";
+		std::cout << easyfind(lis, 90) << std::endl;
 	}
-	catch(const exception & e)
+	catch(const std::exception & e)
 	{
-		cerr << e.what() << '\n';
+		std::cerr << e.what() << '\n';
 	}
 	try
 	{
-		array<int, 4>	arr = {5, 90, 1176, 91};
+		std::deque<int>	deq;
 
-		cout << easyfind(arr, 90) << "\n";
+		deq.push_back(90);
+		deq.push_back(45);
+		deq.push_back(1176);
+		deq.push_back(91);
+		std::cout << easyfind(deq, 90) << std::endl;
 	}
-	catch(const exception & e)
+	catch(const std::exception & e)
 	{
-		cerr << e.what() << '\n';
+		std::cerr << e.what() << '\n';
 	}
 	return 0;
 }

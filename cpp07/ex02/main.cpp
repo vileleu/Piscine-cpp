@@ -10,82 +10,46 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Array.hpp"
 
-#define MAX_VAL 750
+#define MAX_VAL 20
 
 int main(int, char**)
 {
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
+    Array<int>  arra(MAX_VAL);
+    Array<int>  copy(arra);
+
     srand(time(NULL));
+    std::cout << "arra = ";
     for (int i = 0; i < MAX_VAL; i++)
     {
-        const int value = rand();
-        numbers[i] = value;
-        mirror[i] = value;
+        arra[i] = rand() % 50;
+        std::cout << arra[i] << " ";
     }
-    {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);
-    }
+    std::cout << std::endl;
+    std::cout << "copy = ";
+    for (int i = 0; i < MAX_VAL; i++)
+        std::cout << copy[i] << " ";
+    std::cout << std::endl;
+    std::cout << "\n---copy overload---\n" << std::endl;
+    copy = arra;
+    std::cout << "arra = ";
+    for (int i = 0; i < MAX_VAL; i++)
+        std::cout << arra[i] << " ";
+    std::cout << std::endl;
+    std::cout << "copy = ";
     for (int i = 0; i < MAX_VAL; i++)
     {
-        if (mirror[i] != numbers[i])
-        {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
-        }
+        std::cout << copy[i] << " ";
     }
+    std::cout << std::endl;
     try
     {
-        numbers[-2] = 0;
+        arra[-1] = 0;
     }
     catch(const std::exception& e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what() << std::endl;
     }
-    try
-    {
-        numbers[MAX_VAL] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-		//cout << numbers[i] << "\n";
-    }
-    delete [] mirror;//
     return 0;
 }
-
-/*int		main(void)
-{
-	try
-	{
-		Array<string> array(5);
-
-		for (int i(0); i < array.size(); i++)
-			array[i] = "oui";
-		for (int i(0); i < array.size(); i++)
-			cout << array[i] << "\n";
-
-		cout << "\n";
-		Array<int> array2(5);
-
-		for (int i(0); i < array2.size(); i++)
-			array2[i] = i + 10;
-		for (int i(0); i < array2.size(); i++)
-			cout << array2[i] << "\n";
-		cout << array2[10] << "\n";
-	}
-	catch(exception & e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	return 0;
-}*/

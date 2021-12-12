@@ -6,13 +6,11 @@
 /*   By: vico <vico@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 06:22:52 by vico              #+#    #+#             */
-/*   Updated: 2021/08/11 15:48:46 by vico             ###   ########.fr       */
+/*   Updated: 2021/12/06 16:36:59 by vico             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Mutantstack.hpp"
-
-using namespace std;
+#include "MutantStack.hpp"
 
 int main()
 {
@@ -39,10 +37,12 @@ int main()
 		++it;
 	}
 	std::stack<int> s(mstack);
+	MutantStack<int> copy;
 
-	cout << "\nreverse iterator\n";
-	MutantStack<int>::reverse_iterator rit = mstack.rbegin();
-	MutantStack<int>::reverse_iterator rite = mstack.rend();
+	copy = mstack;
+	std::cout << "\n---reverse iterator---\n\n";
+	MutantStack<int>::reverse_iterator rit = copy.rbegin();
+	MutantStack<int>::reverse_iterator rite = copy.rend();
 
 	++rit;
 	--rit;

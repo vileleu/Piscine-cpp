@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <iomanip>
 
 template <typename T>
 class Array
@@ -31,11 +32,11 @@ class Array
 	}
 	Array(unsigned int n) : t(new T[n]), l(n)
 	{
+		for (unsigned int i(0); i < this->l; i++)
+			t[i] = 0;
 	}
-	Array(Array const &copy) : t(new T[copy.size()]), l(n)
+	Array(Array const &copy) : t(new T[copy.size()]), l(copy.size())
 	{
-		this->t = new T[copy.size()];
-		this->l = copy.size();
 		for (unsigned int i(0); i < this->l; i++)
 			this->t[i] = copy[i];
 	}
@@ -58,7 +59,7 @@ class Array
 	}
     T	&operator[](unsigned int n) const
 	{
-        if (n >= this->l)
+        if (n >= this->l || n < 0)
             throw Array::OutOfRange();
         return (this->t[n]);
     }

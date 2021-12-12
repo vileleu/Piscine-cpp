@@ -16,7 +16,7 @@
 #include <iostream>
 #include <algorithm>
 #include <list>
-#include <array>
+#include <deque>
 #include <vector>
 	
 class ThereIsNoOccurence : public std::exception

@@ -18,7 +18,7 @@
 template <typename T>
 void	print(T &a)
 {
-	std::cout << a << "\n";
+	std::cout << a << std::endl;
 }
 
 template <typename T>
